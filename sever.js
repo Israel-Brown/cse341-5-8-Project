@@ -1,13 +1,15 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const nameRoute = require("./routes/nameRoute");
+const homeRoute = require('./routes/home');
+const controllers = require('./controllers/homeController');
 
-// Use the name route
-app.use("/", nameRoute);
 
-// Server configuration
 const PORT = process.env.PORT || 3000;
 
+// Use the home route
+app.use('/', homeRoute);
+
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
+
