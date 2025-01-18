@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const contactsRoute = require('./routes/contacts');
 
 // Home route
 app.get('/', (req, res) => {
