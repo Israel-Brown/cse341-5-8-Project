@@ -1,3 +1,4 @@
 node_modules
 .DS_Store
 mongodb+srv://menelek7171:Faith2468@cse341.tdvp8.mongodb.net/
+.env

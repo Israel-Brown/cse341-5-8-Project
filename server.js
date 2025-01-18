@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const contactsRoute = require('./routes/contacts');
 
 // Home route
 app.get('/', (req, res) => {
@@ -14,8 +15,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-    const contactsRoute = require('./routes/contacts');
-    app.use('api/contacts', contactsRoute);
+// Set up route
+app.use('api/contacts', contactsRoute);
 
 // Start the server
 app.listen(PORT, () => {
