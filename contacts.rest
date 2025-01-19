@@ -1,8 +1,0 @@
-### Get all contacts
-GET http://localhost:3000/contacts
-
-### Get contact by ID
-GET http://localhost:3000/contacts/678c420a5c18cae83487232f
-
-### Get contact by ID
-GET http://localhost:3000/contacts/678c420a5c18cae83487232f
