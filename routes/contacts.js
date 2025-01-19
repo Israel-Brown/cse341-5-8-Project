@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Contact = require('../models/Contact');
+const Contact = require('../models/contact');
 
 // GET all contacts
 router.get('/', async (req, res) => {

@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const contactsRoute = require('./routes/contacts');
+const contactRoutes = require('./routes/contacts');
 
 // Home route
 app.get('/', (req, res) => {
@@ -11,12 +11,17 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => {
+    console.log("Connected to MongoDB");
+  }).catch(err => {
+    console.log("Error connecting to MongoDB:", err);
+  });
 
 // Middleware and routes
-app.use('/contacts', contactsRoute);
+app.use('/contacts', contactRoutes);
 
 // Start the server
 app.listen(PORT, () => {
