@@ -19,6 +19,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mongoose": "^7.x.x"
   }
 }
