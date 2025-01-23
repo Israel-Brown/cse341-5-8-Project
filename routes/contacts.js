@@ -24,5 +24,70 @@ router.get('/:id', async (req, res) => {
       res.status(500).json({ message: err.message });
     }
   });
-  
+
+// POST route: Create a new contact
+router.post('/', async (req, res) => {
+  try {
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    const newContact = new Contact({ firstName, lastName, email, favoriteColor, birthday });
+    const savedContact = await newContact.save();
+    res.status(201).json({ id: savedContact._id });
+  } catch (err) {
+    res.status(500).json({ message: 'Error creating contact' });
+  }
+});
+
+// PUT route: Update a contact
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    if (!firstName && !lastName && !email && !favoriteColor && !birthday) {
+      return res.status(400).json({ message: 'At least one field is required to update' });
+    }
+
+    const updateFields = {
+      ...(firstName && { firstName }),
+      ...(lastName && { lastName }),
+      ...(email && { email }),
+      ...(favoriteColor && { favoriteColor }),
+      ...(birthday && { birthday }),
+    };
+
+    const updatedContact = await Contact.findByIdAndUpdate(id, updateFields, {
+      new: true,
+    });
+
+    if (!updatedContact) {
+      return res.status(404).json({ message: 'Contact not found' });
+    }
+
+    res.status(204).send();
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating contact' });
+  }
+});
+
+// DELETE route: Delete a contact
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedContact = await Contact.findByIdAndDelete(id);
+
+    if (!deletedContact) {
+      return res.status(404).json({ message: 'Contact not found' });
+    }
+
+    res.status(200).json({ message: 'Contact deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Error deleting contact' });
+  }
+});
+
 module.exports = router;

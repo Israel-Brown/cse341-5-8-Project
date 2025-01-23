@@ -23,6 +23,7 @@ app.use(express.json());
 const contactRoutes = require('./routes/contacts');
 app.use('/api/contacts', contactRoutes);
 
+// Test route
 app.get('/', (req, res) => {
   res.send('API is running');
 });

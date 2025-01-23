@@ -9,3 +9,26 @@ GET http://localhost:3000/api/contacts/678c45d45c18cae83487233b
 
 ### Get contact by ID
 GET http://localhost:3000/api/contacts/678c45d45c18cae83487233c
+
+### Add Contact
+POST http://localhost:3000/api/contacts
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-01-01"
+}
+
+### Update Contact
+PUT http://localhost:3000/api/contacts/678c45d45c18cae83487233a
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-01-01"
+}
+
+### Delete Contact
+DELETE http://localhost:3000/api/contacts/678c45d45c18cae83487233a
