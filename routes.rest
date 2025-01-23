@@ -12,6 +12,8 @@ GET http://localhost:3000/api/contacts/678c45d45c18cae83487233c
 
 ### Add Contact
 POST http://localhost:3000/api/contacts
+Content-Type: application/json
+
 {
   "firstName": "John",
   "lastName": "Doe",
@@ -21,13 +23,15 @@ POST http://localhost:3000/api/contacts
 }
 
 ### Update Contact
-PUT http://localhost:3000/api/contacts/678c45d45c18cae83487233a
+PUT http://localhost:3000/api/contacts/678c45d45c18cae83487233b
+Content-Type: application/json
+
 {
-  "firstName": "John",
+  "firstName": "Lena",
   "lastName": "Doe",
-  "email": "john.doe@example.com",
-  "favoriteColor": "Blue",
-  "birthday": "1990-01-01"
+  "email": "lena.doe@example.com",
+  "favoriteColor": "Yellow",
+  "birthday": "1991-02-02"
 }
 
 ### Delete Contact

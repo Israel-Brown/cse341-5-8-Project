@@ -42,37 +42,28 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT route: Update a contact
+// PUT route to update a contact
 router.put('/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+      const updatedContact = await Contact.findByIdAndUpdate(
+          req.params.id, 
+          req.body, 
+          { new: true, runValidators: true } // Return the updated document
+      );
 
-    if (!firstName && !lastName && !email && !favoriteColor && !birthday) {
-      return res.status(400).json({ message: 'At least one field is required to update' });
-    }
+      if (!updatedContact) {
+          return res.status(404).json({ message: 'Contact not found' });
+      }
 
-    const updateFields = {
-      ...(firstName && { firstName }),
-      ...(lastName && { lastName }),
-      ...(email && { email }),
-      ...(favoriteColor && { favoriteColor }),
-      ...(birthday && { birthday }),
-    };
-
-    const updatedContact = await Contact.findByIdAndUpdate(id, updateFields, {
-      new: true,
-    });
-
-    if (!updatedContact) {
-      return res.status(404).json({ message: 'Contact not found' });
-    }
-
-    res.status(204).send();
+      res.status(200).json({
+          message: 'Contact updated successfully',
+          updatedContact,
+      });
   } catch (err) {
-    res.status(500).json({ message: 'Error updating contact' });
+      res.status(500).json({ message: err.message });
   }
 });
+
 
 // DELETE route: Delete a contact
 router.delete('/:id', async (req, res) => {
