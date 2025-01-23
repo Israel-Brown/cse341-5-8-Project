@@ -28,6 +28,11 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
+const fs = require('fs');
+const path = require('path');
+
+console.log('Files in models:', fs.readdirSync(path.resolve(__dirname, './models')));
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
