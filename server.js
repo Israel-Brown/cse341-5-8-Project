@@ -5,11 +5,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// Home route
-app.get('/', (req, res) => {
-    res.send('Israel Brown');
-});
-
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   }).then(() => {

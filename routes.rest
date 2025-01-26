@@ -15,15 +15,15 @@ POST http://localhost:3000/api/contacts
 Content-Type: application/json
 
 {
-  "firstName": "John",
+  "firstName": "France",
   "lastName": "Doe",
-  "email": "john.doe@example.com",
+  "email": "france.doe@example.com",
   "favoriteColor": "Blue",
   "birthday": "1990-01-01"
 }
 
 ### Update Contact
-PUT http://localhost:3000/api/contacts/678c45d45c18cae83487233b
+PUT http://localhost:3000/api/contacts/6795d7b7abc17fbc3dc1a290
 Content-Type: application/json
 
 {
@@ -35,4 +35,4 @@ Content-Type: application/json
 }
 
 ### Delete Contact
-DELETE http://localhost:3000/api/contacts/678c45d45c18cae83487233a
+DELETE http://localhost:3000/api/contacts/6795d7b7abc17fbc3dc1a290
