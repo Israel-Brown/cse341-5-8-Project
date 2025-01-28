@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const cookieParser = require('cookie-parser');
@@ -7,16 +6,15 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
-const mongodb = require('./db/connect');
 
-// import the routing file to handle the default (index) route
+// Import the routing files
 const index = require('./routes/app');
 const contactsRoutes = require('./routes/contacts');
 
-const app = express(); // create an instance of express
+const app = express(); // Create an instance of express
 
 // Middleware for parsing POST data
-app.use(express.json());
+app.use(express.json()); // Use built-in express.json() for parsing JSON
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(logger('dev')); // Use Morgan logger
@@ -29,14 +27,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Set static directory
+// Set static directory for serving front-end assets (if needed)
 app.use(express.static(path.join(__dirname, 'dist/cms')));
 
-// Route handlers
-app.use('/', index);
-app.use('/contacts', contactsRoutes);
+// Route handlers for API
+app.use('/api', index); // Prefix for API routes
+app.use('/api/contacts', contactsRoutes); // Prefix contacts API routes
 
-// Handle non-defined routes
+// Handle non-defined routes (serve the front-end app if not API route)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/cms/index.html'));
 });
@@ -55,25 +53,14 @@ const connectDB = async () => {
   }
 };
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
-  .use('/', require('./routes'));
-
-// Connect to the database and then start the server
+// Connect to the database and start the server
 connectDB().then(() => {
-  // Define the port address
   const port = process.env.PORT || '3000';
   app.set('port', port);
 
-  // Create HTTP server
   const server = http.createServer(app);
 
-  // Start the server
   server.listen(port, () => {
-    console.log('API running on localhost:' + port);
+    console.log(`API running on localhost:${port}`);
   });
 });
