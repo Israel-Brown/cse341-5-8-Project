@@ -31,15 +31,12 @@ const indexRoutes = require('./routes/app');
 const contactsRoutes = require('./routes/contacts');
 
 app.use('/', indexRoutes); // Root routes
-app.use('/api/contacts', contactsRoutes); // Contacts routes
+app.use('/contacts', contactsRoutes); // Contacts routes
 
 // MongoDB connection setup
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URI),
     console.log('Connected to database!');
   } catch (err) {
     console.error('Database connection failed:', err);
