@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Manager</title>
+
+    <!-- Conditionally Load CSS for Render -->
+    <script>
+        if (window.location.hostname.includes('render.com')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://yourdomain.com/path/to/your/render-specific-style.css'; // Replace with your Render-specific CSS URL
+            document.head.appendChild(link);
+        }
+    </script>
+
+    <!-- Default Stylesheet for Local Development -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
