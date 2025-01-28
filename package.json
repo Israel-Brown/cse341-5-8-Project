@@ -1,26 +1,26 @@
 {
-  "name": "cse341",
+  "name": "cse341-apicourse-code",
   "version": "1.0.0",
+  "description": "code to give to students for the cse341 course",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Israel-Brown/cse341.git"
+    "url": "git+https://github.com/nathanbirch/cse341-apiCourse-code.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Nathan Birch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Israel-Brown/cse341/issues"
+    "url": "https://github.com/nathanbirch/cse341-apiCourse-code/issues"
   },
-  "homepage": "https://github.com/Israel-Brown/cse341#readme",
-  "description": "",
+  "homepage": "https://github.com/nathanbirch/cse341-apiCourse-code#readme",
   "dependencies": {
-    "express": "^4.21.2",
-    "dotenv": "^10.0.0",
-    "mongoose": "^7.x.x"
+    "express": "^4.17.3"
   },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
