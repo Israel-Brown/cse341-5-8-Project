@@ -8,7 +8,7 @@ router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 router.use('/contacts', require('./contacts'));
 
-router.get('/', (res) => {
+router.get('/', (req, res) => {
     res.send('Israel Brown');
   });
 
