@@ -17,10 +17,21 @@
         <div id="contact-form" class="contact-form">
             <form id="contactForm" onsubmit="handleFormSubmit(event)">
                 <input type="hidden" id="contact-id" name="contact-id">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+
+                <label for="favorite-color">Favorite Color:</label>
+                <input type="text" id="favorite-color" name="favorite-color" required>
+
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday" required>
+
                 <button type="submit" class="submit-btn">Save</button>
                 <button type="button" class="cancel-btn" onclick="toggleForm()">Cancel</button>
             </form>
@@ -34,6 +45,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Favorite Color</th>
+                        <th>Birthday</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

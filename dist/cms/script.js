@@ -4,24 +4,30 @@ function toggleForm() {
     const form = document.getElementById('contact-form');
     form.style.display = form.style.display === 'block' ? 'none' : 'block';
     document.getElementById('contact-id').value = ''; // Reset form
-    document.getElementById('name').value = '';
+    document.getElementById('first-name').value = '';
+    document.getElementById('last-name').value = '';
     document.getElementById('email').value = '';
+    document.getElementById('favorite-color').value = '';
+    document.getElementById('birthday').value = '';
 }
 
 function handleFormSubmit(event) {
     event.preventDefault();
     
     const id = document.getElementById('contact-id').value;
-    const name = document.getElementById('name').value;
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
     const email = document.getElementById('email').value;
+    const favoriteColor = document.getElementById('favorite-color').value;
+    const birthday = document.getElementById('birthday').value;
     
     if (id) {
         // Edit contact
         const index = contacts.findIndex(contact => contact.id === id);
-        contacts[index] = { id, name, email };
+        contacts[index] = { id, firstName, lastName, email, favoriteColor, birthday };
     } else {
         // Add new contact
-        const newContact = { id: Date.now().toString(), name, email };
+        const newContact = { id: Date.now().toString(), firstName, lastName, email, favoriteColor, birthday };
         contacts.push(newContact);
     }
 
@@ -36,8 +42,10 @@ function renderContacts() {
     contacts.forEach(contact => {
         const row = contactsTable.insertRow();
         row.innerHTML = `
-            <td>${contact.name}</td>
+            <td>${contact.firstName} ${contact.lastName}</td>
             <td>${contact.email}</td>
+            <td>${contact.favoriteColor}</td>
+            <td>${contact.birthday}</td>
             <td>
                 <button class="edit-btn" onclick="editContact('${contact.id}')">Edit</button>
                 <button class="delete-btn" onclick="deleteContact('${contact.id}')">Delete</button>
@@ -49,8 +57,11 @@ function renderContacts() {
 function editContact(id) {
     const contact = contacts.find(contact => contact.id === id);
     document.getElementById('contact-id').value = contact.id;
-    document.getElementById('name').value = contact.name;
+    document.getElementById('first-name').value = contact.firstName;
+    document.getElementById('last-name').value = contact.lastName;
     document.getElementById('email').value = contact.email;
+    document.getElementById('favorite-color').value = contact.favoriteColor;
+    document.getElementById('birthday').value = contact.birthday;
     
     toggleForm();
 }

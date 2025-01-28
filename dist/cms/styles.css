@@ -64,6 +64,11 @@ header h1 {
     border-radius: 5px;
 }
 
+/* Add more specific styles for date input */
+input[type="date"] {
+    width: auto;
+}
+
 .submit-btn,
 .cancel-btn {
     padding: 10px 15px;
