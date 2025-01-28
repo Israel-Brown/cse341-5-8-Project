@@ -1,3 +1,4 @@
+###LOCAL
 ### Get all contacts
 GET http://localhost:3000/contacts
 
@@ -8,7 +9,7 @@ GET http://localhost:3000/contacts/6798dcfae4ec301a520417cd
 GET http://localhost:3000/contacts/6798dcfae4ec301a520417ce
 
 ### Get contact by ID
-GET http://localhost:3000/contacts/6798dcfae4ec301a520417cf
+GET http://localhost:3000/contacts/6798f3729cd20615e31f57f4
 
 ### Add Contact
 POST http://localhost:3000/contacts HTTP/1.1
@@ -23,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Update Contact
-PUT http://localhost:3000/contacts/6798dd4a4e6c05b4fae53724 HTTP/1.1
+PUT http://localhost:3000/contacts/6798f6ee2cb7a60a0e05dbcd HTTP/1.1
 Content-Type: application/json
 
 {
@@ -35,4 +36,39 @@ Content-Type: application/json
 }
 
 ### Delete Contact
-DELETE http://localhost:3000/contacts/6798dd4a4e6c05b4fae53724 HTTP/1.1
+DELETE http://localhost:3000/contacts/6798f4695fb588f252f8d8f4 HTTP/1.1
+
+
+###RENDER
+### Get all contacts
+GET https://cse341-8wyp.onrender.com/contacts
+
+### Get contact by ID
+GET https://cse341-8wyp.onrender.com/contacts/6798f1ff5ee7b308c1e80ef5
+
+### Add Contact
+POST https://cse341-8wyp.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "France",
+  "lastName": "Doe",
+  "email": "france.doe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-01-01"
+}
+
+### Update Contact
+PUT https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417cf
+Content-Type: application/json
+
+{
+  "firstName": "Lena",
+  "lastName": "Doe",
+  "email": "lena.doe@example.com",
+  "favoriteColor": "Yellow",
+  "birthday": "1991-02-02"
+}
+
+### Delete Contact
+DELETE https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417cf
