@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Update Contact
-PUT http://localhost:3000/contacts/6798f6ee2cb7a60a0e05dbcd HTTP/1.1
+PUT http://localhost:3000/contacts/679905da0aa5b077742859f2 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Delete Contact
-DELETE http://localhost:3000/contacts/6798f4695fb588f252f8d8f4 HTTP/1.1
+DELETE http://localhost:3000/contacts/679905da0aa5b077742859f2 HTTP/1.1
 
 
 ###RENDER
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Update Contact
-PUT https://cse341-8wyp.onrender.com/contacts/6798f7a16c4423c4d00d0edb
+PUT https://cse341-8wyp.onrender.com/contacts/6799065fcb09158b1336f716
 Content-Type: application/json
 
 {
@@ -77,4 +77,4 @@ Content-Type: application/json
 }
 
 ### Delete Contact
-DELETE https://cse341-8wyp.onrender.com/contacts/6798f7a16c4423c4d00d0edb
+DELETE https://cse341-8wyp.onrender.com/contacts/6799065fcb09158b1336f716
