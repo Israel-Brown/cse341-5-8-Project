@@ -3,12 +3,16 @@ let contacts = [];
 function toggleForm() {
     const form = document.getElementById('contact-form');
     form.style.display = form.style.display === 'block' ? 'none' : 'block';
-    document.getElementById('contact-id').value = ''; // Reset form
-    document.getElementById('first-name').value = '';
-    document.getElementById('last-name').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('favorite-color').value = '';
-    document.getElementById('birthday').value = '';
+    
+    // Reset the form fields when toggling off to prevent lingering values
+    if (form.style.display === 'none') {
+        document.getElementById('contact-id').value = ''; // Clear the ID
+        document.getElementById('first-name').value = '';
+        document.getElementById('last-name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('favorite-color').value = '';
+        document.getElementById('birthday').value = '';
+    }
 }
 
 function handleFormSubmit(event) {
@@ -20,11 +24,14 @@ function handleFormSubmit(event) {
     const email = document.getElementById('email').value;
     const favoriteColor = document.getElementById('favorite-color').value;
     const birthday = document.getElementById('birthday').value;
-    
+
+    // If there's an ID, it means we are editing an existing contact
     if (id) {
         // Edit contact
         const index = contacts.findIndex(contact => contact.id === id);
-        contacts[index] = { id, firstName, lastName, email, favoriteColor, birthday };
+        if (index !== -1) {
+            contacts[index] = { id, firstName, lastName, email, favoriteColor, birthday }; // Update the contact
+        }
     } else {
         // Add new contact
         const newContact = { id: Date.now().toString(), firstName, lastName, email, favoriteColor, birthday };
@@ -55,7 +62,10 @@ function renderContacts() {
 }
 
 function editContact(id) {
+    // Find the contact to be edited
     const contact = contacts.find(contact => contact.id === id);
+
+    // Set form fields with the contact details
     document.getElementById('contact-id').value = contact.id;
     document.getElementById('first-name').value = contact.firstName;
     document.getElementById('last-name').value = contact.lastName;
@@ -63,7 +73,7 @@ function editContact(id) {
     document.getElementById('favorite-color').value = contact.favoriteColor;
     document.getElementById('birthday').value = contact.birthday;
     
-    toggleForm();
+    toggleForm(); // Show the form
 }
 
 function deleteContact(id) {
