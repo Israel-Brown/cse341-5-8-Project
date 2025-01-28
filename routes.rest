@@ -44,7 +44,13 @@ DELETE http://localhost:3000/contacts/6798f4695fb588f252f8d8f4 HTTP/1.1
 GET https://cse341-8wyp.onrender.com/contacts
 
 ### Get contact by ID
-GET https://cse341-8wyp.onrender.com/contacts/6798f1ff5ee7b308c1e80ef5
+GET https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417cd
+
+### Get contact by ID
+GET https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417ce
+
+### Get contact by ID
+GET https://cse341-8wyp.onrender.com/contacts/6798f3729cd20615e31f57f4
 
 ### Add Contact
 POST https://cse341-8wyp.onrender.com/contacts
@@ -59,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Update Contact
-PUT https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417cf
+PUT https://cse341-8wyp.onrender.com/contacts/6798f7a16c4423c4d00d0edb
 Content-Type: application/json
 
 {
@@ -71,4 +77,4 @@ Content-Type: application/json
 }
 
 ### Delete Contact
-DELETE https://cse341-8wyp.onrender.com/contacts/6798dcfae4ec301a520417cf
+DELETE https://cse341-8wyp.onrender.com/contacts/6798f7a16c4423c4d00d0edb
