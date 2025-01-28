@@ -13,8 +13,4 @@ router.put('/:id', contactsController.updateContact);
 
 router.delete('/:id', contactsController.deleteContact);
 
-router.get('/', (req, res) => {
-    res.status(200).json({ message: 'Contacts route is working!' });
-});
-
 module.exports = router;
