@@ -1,4 +1,4 @@
-const Contact = require('../models/contacts'); // Import the Mongoose model
+const Contact = require('../models/Contact'); // Import the Mongoose model
 
 const getAll = async (req, res) => {
   try {
