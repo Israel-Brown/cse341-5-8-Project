@@ -11,7 +11,7 @@ const mongodb = require('./db/connect');
 
 // import the routing file to handle the default (index) route
 const index = require('./routes/app');
-const bookRoutes = require('./routes/contacts');
+const contactsRoutes = require('./routes/contacts');
 
 const app = express(); // create an instance of express
 
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'dist/cms')));
 
 // Route handlers
 app.use('/', index);
-app.use('/books', bookRoutes);
+app.use('/contacts', contactsRoutes);
 
 // Handle non-defined routes
 app.get('*', (req, res) => {
@@ -54,6 +54,14 @@ const connectDB = async () => {
     process.exit(1); // Exit process if connection fails
   }
 };
+
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  })
+  .use('/', require('./routes'));
 
 // Connect to the database and then start the server
 connectDB().then(() => {
