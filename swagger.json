@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contact Management API",
-    "description": "An API for managing contacts, including CRUD operations.",
+    "title": "Book Management API",
+    "description": "An API for managing books, including CRUD operations.",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -11,9 +11,9 @@
     "http"
   ],
   "paths": {
-    "/contacts/": {
+    "/books/": {
       "get": {
-        "description": "",
+        "description": "Retrieve all books.",
         "produces": [
           "application/json"
         ],
@@ -27,7 +27,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new book.",
         "parameters": [
           {
             "name": "body",
@@ -35,20 +35,20 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
+                "title": {
+                  "example": "Book Title"
                 },
-                "lastName": {
-                  "example": "any"
+                "author": {
+                  "example": "Author Name"
                 },
-                "email": {
-                  "example": "any"
+                "isbn": {
+                  "example": "123-456-789"
                 },
-                "favoriteColor": {
-                  "example": "any"
+                "publishedDate": {
+                  "example": "2025-02-08"
                 },
-                "birthday": {
-                  "example": "any"
+                "genre": {
+                  "example": "Fiction"
                 }
               }
             }
@@ -64,9 +64,9 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/books/{id}": {
       "get": {
-        "description": "",
+        "description": "Retrieve a book by its ID.",
         "produces": [
           "application/json"
         ],
@@ -91,7 +91,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update a book by its ID.",
         "parameters": [
           {
             "name": "id",
@@ -105,20 +105,20 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
+                "title": {
+                  "example": "Updated Book Title"
                 },
-                "lastName": {
-                  "example": "any"
+                "author": {
+                  "example": "Updated Author Name"
                 },
-                "email": {
-                  "example": "any"
+                "isbn": {
+                  "example": "987-654-321"
                 },
-                "favoriteColor": {
-                  "example": "any"
+                "publishedDate": {
+                  "example": "2025-02-08"
                 },
-                "birthday": {
-                  "example": "any"
+                "genre": {
+                  "example": "Science Fiction"
                 }
               }
             }
@@ -137,7 +137,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a book by its ID.",
         "parameters": [
           {
             "name": "id",

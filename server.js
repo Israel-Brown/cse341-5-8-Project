@@ -28,7 +28,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Import and use routes
 const indexRoutes = require('./routes/app');
-const contactsRoutes = require('./routes/contacts');
+const contactsRoutes = require('./routes/books');
 
 app.use('/', indexRoutes); // Root routes
 app.use('/contacts', contactsRoutes); // Contacts routes
@@ -46,7 +46,7 @@ const connectDB = async () => {
 
 // Start server after successful database connection
 connectDB().then(() => {
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 8080;
   app.set('port', port);
 
   const server = http.createServer(app);
