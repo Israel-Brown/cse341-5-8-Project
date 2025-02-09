@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Update Book
-PUT http://localhost:8080/books/67a82d00f2d7f018a55b7fbe HTTP/1.1
+PUT http://localhost:8080/books/67a847f57b35e7cca2e025ef HTTP/1.1
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Delete Book
-DELETE http://localhost:8080/books/67a82d00f2d7f018a55b7fbe HTTP/1.1
+DELETE http://localhost:8080/books/67a847f57b35e7cca2e025ef HTTP/1.1
 
 
 ###RENDER
@@ -50,7 +50,7 @@ GET https://cse341-5-8-project.onrender.com/books/67a82993490d647f67cd4326
 GET https://cse341-5-8-project.onrender.com/books/67a82993490d647f67cd4327
 
 ### Get book by ID
-GET https://cse341-5-8-project.onrender.com/67a82993490d647f67cd4328
+GET https://cse341-5-8-project.onrender.com/books/67a82993490d647f67cd4328
 
 ### Add Book
 POST https://cse341-5-8-project.onrender.com/books
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Update Book
-PUT https://cse341-5-8-project.onrender.com/books/6799065fcb09158b1336f716
+PUT https://cse341-5-8-project.onrender.com/books/67a84854e8b6adb9ef28d729
 Content-Type: application/json
 
 {
@@ -77,4 +77,4 @@ Content-Type: application/json
 }
 
 ### Delete Book
-DELETE https://cse341-5-8-project.onrender.com/books/6799065fcb09158b1336f716
+DELETE https://cse341-5-8-project.onrender.com/books/67a84854e8b6adb9ef28d729
